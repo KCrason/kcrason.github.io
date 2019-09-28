@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Android Binder通信方式-手动实现binder双向通信]]></title>
+    <url>%2F2019%2F09%2F28%2FAndroid-Binder%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F-%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0binder%E5%8F%8C%E5%90%91%E9%80%9A%E4%BF%A1%2F</url>
+    <content type="text"><![CDATA[待更新…]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Binder通信</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Android Binder通信方式-AIDL语言实现binder通信]]></title>
+    <url>%2F2019%2F09%2F28%2FAndroid-Binder%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F-AIDL%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0binder%E9%80%9A%E4%BF%A1%2F</url>
+    <content type="text"><![CDATA[待更新…]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Binder通信</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Android Binder通信方式-Messenger实现binder通信]]></title>
+    <url>%2F2019%2F09%2F28%2FAndroid-Binder%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F-Messenger%E5%AE%9E%E7%8E%B0binder%E9%80%9A%E4%BF%A1%2F</url>
+    <content type="text"><![CDATA[待更新…]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Binder通信</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Android Binder通信#开篇#]]></title>
+    <url>%2F2019%2F09%2F28%2FAndroid-Binder%E9%80%9A%E4%BF%A1-%E5%BC%80%E7%AF%87%2F</url>
+    <content type="text"><![CDATA[概述熟悉Android开发的人都知道，Android系统间的进程通信方式主要是使用Binder机制的，当然，也不乏用到了其它的一些机制，比如Socket套接字、Single信号量进行通信，但是Android不同进程间的主要通信机制还是依靠的Binder。那么Binder到底是为什么会成为Android进程间的主要通信方式？Binder到底是如何进行进程间的通信的？Binder机制1、为什么Android选用Binder进行通信Android选用Binder进行通信主要有两方面的考虑性能方面：在移动设备上，广泛的使用跨进程通信对性能有严格要求，Binder相对其他的通信方式更加高效。Binder数据拷贝只需要一次，而管道、消息队列、Socket都需要2次，共享内存方式一次内存拷贝都不需要，但实现方式又比较复杂。安全方面：传统的进程通信方式对于通信双方的身份并没有做出严格的验证，比如Socket通信ip地址是客户端手动填入，很容易进行伪造，而Binder机制从协议本身就支持对通信双方做身份校检，因而大大提升了安全性。2、Binder是如何进行通信的我们知道，不同的Android应用程序之间是无法共享内存的。每个应用程序在创建之后就与其他的应用程序完全隔离。而要想让两个不同的应用程序进行通信，那么我们必须从底层入手。Android应用程序是基于Linux内核的，也就是说通过共享内核空间即可完成通信过程。Android Binder通信实际上是一种包含客户端和服务端角色的C/S架构。通过上面的通信机制图形我们可以知道。通信依靠的对象主要有以下几个。客户端：客户端我们可以把他认为是需要与其它进程进行通信的一端。当客户端需要与其他进程进行通信时，通过获取其他进程在Service Manager注册的远程服务来发送消息。消息发送出去了，再通过Binder驱动传递至内核空间，内核空间再返回给远程进程（服务端）。服务端：而服务端则作为被通信的一方，通过向Service Manager注册远程服务来提供给客户端调用。当然客户端和服务端的角色不是绝对的。在实际的通信过程中，作为客户端的一方也可以有时候也可以被认为是服务端，服务端的一方可以被认为是客户端。ServiceManager进程：如果你了解Android的启动过程，就知道Service Manger进程是由init进程启动，主要用于管理远程服务。主要包括注册和查询服务。ServiceManger进程启动后会打开Binder设备，并在内存中映射128k的空间。之后告诉Binder驱动自己是Binder的上下文管理者。之后进入循环，检索客户端的请求。Binder驱动：它主要负责进程之间Binder通信的建立，Binder引用计数管理，数据包在进程之间的传递和交互等一系列底层支持。3、Android中Binder的具体应用方式Android中进行Binder通信是及其方便的，尽管我们大致了解了Binder基本原理，但实际上，了解Framework层Binder通信流程才是最重要的。后续将通过三篇文章来阐述应用层Binder通信的具体实现方式。通过这三篇文章，我们可以对Binder的流程有更为清晰的认识。Android Binder通信方式-Messenger实现binder通信Android Binder通信方式-AIDL语言实现binder通信Android Binder通信方式-手动实现binder双向通信]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Binder通信</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[类似微信根据手指长按位置精准弹出的PopupWindow]]></title>
     <url>%2F2019%2F08%2F14%2F%E7%B1%BB%E4%BC%BC%E5%BE%AE%E4%BF%A1%E6%A0%B9%E6%8D%AE%E6%89%8B%E6%8C%87%E9%95%BF%E6%8C%89%E4%BD%8D%E7%BD%AE%E7%B2%BE%E5%87%86%E5%BC%B9%E5%87%BA%E7%9A%84PopupWindow%2F</url>
     <content type="text"><![CDATA[类似微信根据手指长按位置精准弹出的PopupWindow，自动根据左右上下边距调整显示的方向。APK体验包项目地址准备工作1、导入依赖1implementation &apos;com.kcrason:motionevent-popupwindow:1.0.0&apos;简单使用(纯微信效果)1、在需要显示的Activity重写dispatchTouchEvent，并设置一个变量用于保存motionEvent。（如果需要设置一个全局的MotionEvent，则需要在BaseActivity重写dispatchTouchEvent并提供一个方法获取motionEvent对象即可）1234override fun dispatchTouchEvent(ev: MotionEvent?): Boolean &#123; this.mMotionEvent = ev return super.dispatchTouchEvent(ev) &#125;2、给需要触发显示popupwindow的view设置单击或长按时显示popupwindow，显示popupwindow时，将motionEvent变量传递进去。123456789txtCenterClick.setOnLongClickListener &#123; CommonMotionEventPopupWindow(this) .showOptions(arrayListOf(&quot;复制&quot;, &quot;粘贴&quot;, &quot;发送&quot;, &quot;翻译&quot;, &quot;发送给好友&quot;)) .setOnClickItemOptionsListener &#123; position, optionName -&gt; Toast.makeText(this, &quot;this is $position , optionName:$optionName&quot;, Toast.LENGTH_SHORT).show() &#125; .showMotionEventPopupWindow(it, mMotionEvent) return@setOnLongClickListener true &#125;自定义界面的Popupwindow1、创建新类继承BaseMotionEventPopupWindow即可。1234567891011121314151617class CustomMotionEventPopupWindow(context: Context) :BaseMotionEventPopupWindow(context) &#123; override fun init() &#123; //初始化一些参数 &#125; override fun getContainerLayoutId(): Int &#123; //返回你需要显示的popupwindow xml &#125; override fun getRealPopupWindowHeight(): Int &#123; //返回popupwindow真实的高度，该高度在计算显示popupwindow的位置时需要用到，必须保证其准确性。 &#125; override fun getWindowWidth(): Int &#123; //返回popupwindow的宽度，一般使用固定的值即可。 &#125;&#125;2、在需要显示的地方调用showMotionEventPopupWindow(anchor: View?, currentMotionEvent: MotionEvent?)方法显示popupwindow效果展示结语实现比较简单，就不做过多介绍了，有兴趣可以download代码查看。]]></content>
