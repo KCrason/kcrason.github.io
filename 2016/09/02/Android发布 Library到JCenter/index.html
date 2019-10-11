@@ -869,7 +869,6 @@ setInterval("createtime()",250);
 
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
    <script type="text/javascript">
         var gitalk = new Gitalk({
           clientID: 'a6099172f742837f01b2',
@@ -877,10 +876,10 @@ setInterval("createtime()",250);
           repo: 'kcrason.github.io',
           owner: 'KCrason',
           admin: ['KCrason'],
-          id: md5(window.location.pathname),
+          id: location.pathname,
           distractionFreeMode: 'true'
         })
-        gitalk.render('gitalk-container')
+        gitalk.render('gitalk-container')           
        </script>
 
 
