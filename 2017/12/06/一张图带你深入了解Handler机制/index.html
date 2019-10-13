@@ -83,7 +83,7 @@
 <meta name="keywords" content="handler机制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一张图带你深入了解Handler机制">
-<meta property="og:url" content="http://yoursite.com/2017/12/06/一张图带你深入了解Handler机制/index.html">
+<meta property="og:url" content="https://kcrason.github.io/2017/12/06/一张图带你深入了解Handler机制/index.html">
 <meta property="og:site_name" content="KCrason&#39;s Blog">
 <meta property="og:description" content="前言 这两天正好闲着，遂回顾了一下以前觉得理解的很模糊的东西。Handler机制便是其中之一。尽管我们经常用Handler进行线程之间的通信。但是对其中的过程，可能没太怎么去了解。即便有了解，可能也被复杂的逻辑给整蒙了。又是Looper又是MessageQueue的。我就是被整蒙圈的一员。但是今天，我将它重新梳理了一遍，在此记录一下。一方面是便于以后查看，另一方面加深自己的理解。 Handler机">
 <meta property="og:locale" content="zh-Hans">
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/06/一张图带你深入了解Handler机制/">
+  <link rel="canonical" href="https://kcrason.github.io/2017/12/06/一张图带你深入了解Handler机制/">
 
 
 
@@ -195,16 +195,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
@@ -231,6 +221,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
           </a>
         </li>
       
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/06/一张图带你深入了解Handler机制/">
+    <link itemprop="mainEntityOfPage" href="https://kcrason.github.io/2017/12/06/一张图带你深入了解Handler机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KCrason">
@@ -566,10 +566,6 @@
           
 
   
-    <div id="gitalk-container">
-	</div>
-  
-
 
         </div>
         
@@ -814,8 +810,6 @@ setInterval("createtime()",250);
   
 
 
-  
-
 
 
 
@@ -854,11 +848,6 @@ setInterval("createtime()",250);
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -919,21 +908,6 @@ setInterval("createtime()",250);
 
 
 
-
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: '51cb0d41e31c8cf9886c',
-          clientSecret: 'c7e367fb9363a1f483e888979777eaed12205dc1',
-          repo: 'kcrason.github.io',
-          owner: 'KCrason',
-          admin: ['KCrason'],
-          id: 'gitalk init error',
-          distractionFreeMode: 'true'
-        })
-        gitalk.render('gitalk-container')           
-       </script>
 
 
   

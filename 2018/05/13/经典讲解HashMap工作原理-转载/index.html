@@ -83,20 +83,20 @@
 <meta name="keywords" content="HashMap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="经典讲解HashMap工作原理[转载]">
-<meta property="og:url" content="http://yoursite.com/2018/05/13/经典讲解HashMap工作原理-转载/index.html">
+<meta property="og:url" content="https://kcrason.github.io/2018/05/13/经典讲解HashMap工作原理-转载/index.html">
 <meta property="og:site_name" content="KCrason&#39;s Blog">
 <meta property="og:description" content="本文由ImportNew-Wing翻译自coding-geek。  大部分Java开发者都在使用Map，特别是HashMap。HashMap是一种简单但强大的方式去存储和获取数据。但有多少开发者知道HashMap内部如何工作呢？几天前，我阅读了java.util.HashMap的大量源代码（包括Java 7 和Java 8），来深入理解这个基础的数据结构。在这篇文章中，我会解释java.util">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/05/13/经典讲解HashMap工作原理-转载/20190928233444.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/05/13/经典讲解HashMap工作原理-转载/20190928234112.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/05/13/经典讲解HashMap工作原理-转载/20190928234636.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/05/13/经典讲解HashMap工作原理-转载/20190928235047.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/05/13/经典讲解HashMap工作原理-转载/20190928235137.jpg">
+<meta property="og:image" content="https://kcrason.github.io/2018/05/13/经典讲解HashMap工作原理-转载/20190928233444.jpg">
+<meta property="og:image" content="https://kcrason.github.io/2018/05/13/经典讲解HashMap工作原理-转载/20190928234112.jpg">
+<meta property="og:image" content="https://kcrason.github.io/2018/05/13/经典讲解HashMap工作原理-转载/20190928234636.jpg">
+<meta property="og:image" content="https://kcrason.github.io/2018/05/13/经典讲解HashMap工作原理-转载/20190928235047.jpg">
+<meta property="og:image" content="https://kcrason.github.io/2018/05/13/经典讲解HashMap工作原理-转载/20190928235137.jpg">
 <meta property="og:updated_time" content="2019-09-28T15:58:26.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="经典讲解HashMap工作原理[转载]">
 <meta name="twitter:description" content="本文由ImportNew-Wing翻译自coding-geek。  大部分Java开发者都在使用Map，特别是HashMap。HashMap是一种简单但强大的方式去存储和获取数据。但有多少开发者知道HashMap内部如何工作呢？几天前，我阅读了java.util.HashMap的大量源代码（包括Java 7 和Java 8），来深入理解这个基础的数据结构。在这篇文章中，我会解释java.util">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/13/经典讲解HashMap工作原理-转载/20190928233444.jpg">
+<meta name="twitter:image" content="https://kcrason.github.io/2018/05/13/经典讲解HashMap工作原理-转载/20190928233444.jpg">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/13/经典讲解HashMap工作原理-转载/">
+  <link rel="canonical" href="https://kcrason.github.io/2018/05/13/经典讲解HashMap工作原理-转载/">
 
 
 
@@ -198,16 +198,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
@@ -234,6 +224,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
           </a>
         </li>
       
@@ -302,7 +302,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/13/经典讲解HashMap工作原理-转载/">
+    <link itemprop="mainEntityOfPage" href="https://kcrason.github.io/2018/05/13/经典讲解HashMap工作原理-转载/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KCrason">
@@ -656,10 +656,6 @@
           
 
   
-    <div id="gitalk-container">
-	</div>
-  
-
 
         </div>
         
@@ -879,8 +875,6 @@ setInterval("createtime()",250);
   
 
 
-  
-
 
 
 
@@ -919,11 +913,6 @@ setInterval("createtime()",250);
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -984,21 +973,6 @@ setInterval("createtime()",250);
 
 
 
-
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: '51cb0d41e31c8cf9886c',
-          clientSecret: 'c7e367fb9363a1f483e888979777eaed12205dc1',
-          repo: 'kcrason.github.io',
-          owner: 'KCrason',
-          admin: ['KCrason'],
-          id: 'gitalk init error',
-          distractionFreeMode: 'true'
-        })
-        gitalk.render('gitalk-container')           
-       </script>
 
 
   
